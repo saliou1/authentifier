@@ -76,30 +76,30 @@
         signInWithEmailAndPassword(auth , email, password)
          .then((userCredential)=>{
           const user = userCredential.user;
-          let users ;
-        getDocs(q).then(docSnap => {
-            docSnap.forEach((doc)=> {
-                users= doc.data();
-            });
-            if (typeof users !== 'undefined') {
-                if (users.status ==="admin") {
-        document.getElementById('eemail').value ="";
-        document.getElementById('ppassword').value="";
-         window.location="./admin.html"
-         }else if (users.status ==="user") {
-        document.getElementById('eemail').value ="";
-        document.getElementById('ppassword').value="";
-        window.location="./user.html"
+//           let users ;
+//         getDocs(q).then(docSnap => {
+//             docSnap.forEach((doc)=> {
+//                 users= doc.data();
+//             });
+//             if (typeof users !== 'undefined') {
+//                 if (users.status ==="admin") {
+//         document.getElementById('eemail').value ="";
+//         document.getElementById('ppassword').value="";
+//          window.location="./admin.html"
+//          }else if (users.status ==="user") {
+//         document.getElementById('eemail').value ="";
+//         document.getElementById('ppassword').value="";
+//         window.location="./user.html"
     
-        }else{
-        alert('don\'t exist')
-        }
-            }else{
-                alert('désolé vous ne figurez pas ici veuillez vous inscrire svp')
-            }
-            // console.log("Document data:", users[0]['email']);
-            console.log( users.status);
-        });
+//         }else{
+//         alert('don\'t exist')
+//         }
+//             }else{
+//                 alert('désolé vous ne figurez pas ici veuillez vous inscrire svp')
+//             }
+//             // console.log("Document data:", users[0]['email']);
+//             console.log( users.status);
+//         });
           //signed in
           const dt = new Date();         
           update(ref(database, 'users/' + user.uid),{
